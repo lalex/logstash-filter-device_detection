@@ -1,5 +1,7 @@
 sudo: false
 language: ruby
+notifications:
+  email: false
 cache: bundler
 jdk: oraclejdk8
 rvm:
