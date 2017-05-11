@@ -1,0 +1,11 @@
+*.gem
+Gemfile.lock
+.bundle
+vendor
+lib/ch/
+lib/com/
+lib/org/
+
+# Intellij
+.idea
+*.iml
