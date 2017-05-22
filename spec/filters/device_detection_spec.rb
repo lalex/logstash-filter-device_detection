@@ -6,6 +6,43 @@ DATAFILE = ::Dir.glob(::File.expand_path("../../vendor/", ::File.dirname(__FILE_
 
 describe LogStash::Filters::DeviceDetection do
 
+  describe "properties is not set" do
+    let(:config) do <<-CONFIG
+      filter {
+        device_detection {
+          #datafile => "#{DATAFILE}"
+          source => "user_agent"
+          target => "device_detection"
+        }
+      }
+    CONFIG
+    end
+
+    sample("user_agent" => "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0") do
+      expect { subject }.to raise_error(RuntimeError)
+    end
+
+  end
+
+  describe "empty properties" do
+    let(:config) do <<-CONFIG
+      filter {
+        device_detection {
+          #datafile => "#{DATAFILE}"
+          source => "user_agent"
+          target => "device_detection"
+          properties => []
+        }
+      }
+    CONFIG
+    end
+
+    sample("user_agent" => "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0") do
+      expect { subject }.to raise_error(RuntimeError)
+    end
+
+  end
+
   describe "defaults" do
     let(:config) do <<-CONFIG
       filter {

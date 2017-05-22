@@ -49,6 +49,10 @@ class LogStash::Filters::DeviceDetection < LogStash::Filters::Base
       end
     end
 
+    if @properties.nil? || @properties.empty?
+      raise "An array of device properties must not be empty."
+    end
+
     begin
       dataset = Java::FiftyoneMobileDetectionFactories::StreamFactory.create(@datafile, false)
       @provider = Java::FiftyoneMobileDetection::Provider.new(dataset, @cache_size)
