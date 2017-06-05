@@ -1,10 +1,11 @@
 Gem::Specification.new do |s|
   s.name          = 'logstash-filter-device_detection'
-  s.version       = '1.0.0'
+  s.version       = '1.0.1'
   s.licenses      = ['Apache License (2.0)']
   s.summary       = 'Use 51Degrees Device Detection library to parse User-Agent string'
   s.authors       = ['lalex']
   s.email         = 'github@lalex.nsk.ru'
+  s.homepage      = 'https://github.com/lalex/logstash-filter-device_detection'
   s.platform      = "java"
   s.require_paths = ['lib']
 
