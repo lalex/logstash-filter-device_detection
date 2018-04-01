@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'logstash-filter-device_detection'
-  s.version       = '1.0.3'
+  s.version       = '1.0.4'
   s.licenses      = ['Apache License (2.0)']
   s.summary       = 'Use 51Degrees Device Detection library to parse User-Agent string'
   s.authors       = ['lalex']
@@ -22,6 +22,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'logstash-devutils'
 
   # Jar dependencies
-  s.requirements << "jar 'com.51degrees:device-detection-core', '3.2.14.2'"
+  s.requirements << "jar 'com.51degrees:device-detection-core', '3.2.16.4'"
   s.add_development_dependency 'jar-dependencies', '~> 0.3.2'
 end
