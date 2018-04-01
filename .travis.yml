@@ -5,7 +5,15 @@ notifications:
 cache: bundler
 jdk: oraclejdk8
 rvm:
-  - jruby-1.7.25
+- jruby-1.7.25
 before_script:
-  - bundle exec rake vendor
+- bundle exec rake vendor
 script: bundle exec rspec
+deploy:
+  provider: rubygems
+  api_key:
+    secure: i8JJ4ydadgX7xKMSh+1hnrCH2Zl/GrVw5+HXi0aHU18lEIJtcPUtXhzTqGptdkodg403dCF00EQQxtmpcKW8wtYFsp1EXJed/VPrZJF1yyCQUJzKVYbf96QzZCPIzCcrKwq5vuNPXNf0tw9v/o0szz0pCfV1FFAkWkvEE0TvcjizKy+C1LEC7uxhhvO09/FKk219y2gC9/zbyg3UGPDX/a4892eQG8VXUUlo7nly7WZ163sKYrCMpytxRKPFY03HujrD64iohlWd5FSSp/RgpR0cFSFf46Qoa6BLPLXCLdCCNJQUoVcDgvRFuupbOpKVRuyVfH1cPDzYyqF7s8aRH3YUtZBElHnBI5VQBBonqPb/xopL9lILSUk7WYDKPRZhAUAfJMYODRG6KWU78nMkgb4Qj38yNlyyZaAqjVKZ/aYlEFGduyaUqbZKWckRh4T00dwXPPP2a2cAUAOva1KlLN1Elsp2Ims4c9FP5ox+h38uoejwdbdW6mbCgJm50y+kZtW0vk8sIF3KYr456/ynIQMEnQW3mZJ3SxEoadZF2GS2SPvcuLHkbfUGha9n7pOqrXVLW7oclRa59+z3KkThbQp6326+vCZtD6M6vO0x0ErxqQd6+U6GksQWRHqhA9Yj/dwjFUaHhDofrr+wMeAjMHPwXTg91yTFhcb155Ynk1g=
+  gem: logstash-filter-device_detection
+  on:
+    tags: true
+    repo: lalex/logstash-filter-device_detection
